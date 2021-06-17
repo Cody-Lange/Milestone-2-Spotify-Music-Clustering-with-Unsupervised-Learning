@@ -14,27 +14,34 @@ In addition to Spotify’s song characteristics, we leveraged the Librosa packag
 **Unsupervised Learning Methods**
 
 After the data was mined, standard scaling was applied to make the data more suitable for clustering. Afterwards, either principal component analysis or t-sne was applied to find three features that best capture the variance of the data and can generate 3d plots for visualization. PCA was chosen because it works well with larger datasets and preserves global distances between clusters.T-Sne was also chosen because it preserves local distances as opposed to global distances, which was initially thought to possibly make the clusters more distinguishable, as it is a very different approach to dimensional reduction. Models were then clustered via either K-Means clustering or agglomerative clustering, with the first pass attempting to gage whether or not unsupervised models could reconstruct existing genre clusters. K-means was chosen because we already know 11 clusters exist naturally, it is simple, and  is guaranteed to converge. Agglomerative clustering was chosen because it was unknown whether or not music data inherently follows a “treelike structure'', it still clusters a predetermined amount of clusters, and captures groups of varying shapes and sizes better.
-After initial visualizations for clusters of 11 were made, the elbow plot in figure 2 was used to determine a mathematically more “appropriate” cluster size. Elbow plots iteratee through K-Means models of different cluster sizes and sums up the squared distances from each point to the centroid of its cluster. (“inertia) It is commonly observed that lower inertia values give clusters that are more distinguishable, and the cluster sizes with acceptable inertia values fall within the range of 3 to 6 clusters. The next set of 3D clustering visualizations used a cluster size of 6 in order to be closer to the ground truth of 11 genres.
+After initial visualizations for clusters of 11 were made, the elbow plot in figure 2 was used to determine a mathematically more “appropriate” cluster size. Elbow plots iterate through K-Means models of different cluster sizes and sums up the squared distances from each point to the centroid of its cluster. (“inertia) It is commonly observed that lower inertia values give clusters that are more distinguishable, and the cluster sizes with acceptable inertia values fall within the range of 3 to 6 clusters. The next set of 3D clustering visualizations used a cluster size of 6 in order to be closer to the ground truth of 11 genres.
 
 ![image](https://user-images.githubusercontent.com/50972659/122320655-914abf80-cef0-11eb-96bd-e4619cc952a6.png)
+
 Figure 1.  An elbow plot used assist in determining “appropriate” cluster size
  
 ![image](https://user-images.githubusercontent.com/50972659/122320901-00c0af00-cef1-11eb-8039-d46ef7685393.png)
+
 Figure 2. K-means Clustering w/ t-SNE - 6 clusters^^
 
 ![image](https://user-images.githubusercontent.com/50972659/122320927-0b7b4400-cef1-11eb-9427-0854b98ed880.png)
+
 Figure 3. K-means Clustering w/ t-SNE - 11 clusters^^
 
 ![image](https://user-images.githubusercontent.com/50972659/122320955-1930c980-cef1-11eb-852f-74cdc66e2ae6.png)
+
 Figure 4. K-means Clustering w/ PCA - 6 clusters^^
 
 ![image](https://user-images.githubusercontent.com/50972659/122320994-25b52200-cef1-11eb-9036-09005f075176.png)
+
 Figure 5. K-Means Clustering w/ PCA - 11 Clusters^^
 
 ![image](https://user-images.githubusercontent.com/50972659/122320832-e25ab380-cef0-11eb-8939-bf7cc505bbfe.png)
+
 Figure 6. Agglomerative Clustering w/ t-SNE - 11 Clusters^^
 
 ![image](https://user-images.githubusercontent.com/50972659/122320871-f43c5680-cef0-11eb-8522-ed919d2c67ad.png)
+
 Figure 7. Agglomerative Clustering w/ PCA - 11 Clusters^^
 
 
@@ -43,11 +50,13 @@ Figure 7. Agglomerative Clustering w/ PCA - 11 Clusters^^
 The 3D clustering visualizations are all listed in an appendix at the end for space reasons.
 
 ![image](https://user-images.githubusercontent.com/50972659/122321363-bf7ccf00-cef1-11eb-9932-782636359106.png)
+
 Table 1. Davies Bouldin and Calinski-Harabasz scores for all clusters
 
 We were interested to see what number of clusters would produce the most distinguishable results and how this would compare to the 11 genres we began with. We found that the lines between genres are heavily blurred, especially when talking about ‘modern’ music - pop, rap, and EDM for example. We found that 6 clusters produced the most distinguishable results when differentiating between songs according to the feature representations we chose to use. Built-in audio characteristics such as key, loudness, and energy for instance may well be similar across different genres, especially considering that popular modern music across the top genres carry very similar qualities according to what the public responds positively to. High tempos, danceability, and valence (emotional positivity) are rife among popular music, and these songs are usually the ones inputted into spotify playlists. The PCA biplot in Figure 3. Shows that the first principal components mostly depended on acousticness, loudness, energy, and danceability, although acousticness was inversely related with loudness and energy. This can be attributed to the classical class having large acoustic values. The internal computation of these metrics were loosely defined on their development site, but according to their metrics, genres blur to a very high degree according to these characteristics. 
 
 ![image](https://user-images.githubusercontent.com/50972659/122319125-2dbf9280-ceee-11eb-8b6d-0190ba4d56f7.png)
+
 Figure 8. PCA biplot of the Spotify data
 
 It is interesting, however, to observe the differences in scores across different clustering methods as applied to our dataset of 3098 songs. We used the Davies Bouldin and Calinski Harabasz scores as our main evaluation metrics. The Davies-Bouldin score dictates the average similarity between clusters, essentially measuring how much overlap exists between separate clusters. Clusters which are more 
