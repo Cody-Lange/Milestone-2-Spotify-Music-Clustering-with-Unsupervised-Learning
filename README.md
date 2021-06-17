@@ -1,1 +1,1 @@
-# Milestone-2-Music-Clustering-with-Unsupervised-Learning
+# Milestone-2-Spotify-Music-Clustering-with-Unsupervised-Learning
