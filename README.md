@@ -4,7 +4,7 @@
 
 **Motivation**
 
-Music is always evolving, and at the core of its evolution is the formation of new genres and the reimagination of existing genres. Genres are created and reformed due to the fluidity of their inherent characteristics. Qualities such as form, style, and subject matter are in flux and can overlap between genres and subgenres. The main motivation for our music genre classification project was to explore the differences between genres: how well-defined genre boundaries are according to the sonic characteristics of songs as well as whether an unsupervised learning model would generate classifications similar to an average music listener. We theorize that the borders between genres are becoming blurred and that the broad classifications are similar.
+Music is always evolving, and at the core of its evolution is the formation of new genres and the reimagination of existing genres. Genres are created and reformed due to the fluidity of their inherent characteristics. Qualities such as form, style, and subject matter are in flux and can overlap between genres and subgenres. The main motivation for our music genre classification project was to explore the differences between genres: how well-defined genre boundaries are according to the characteristics of songs as well as whether an unsupervised learning model would generate classifications similar to an average music listener. We theorize that the borders between genres are becoming blurred and that the broad classifications are similar.
 
 **Data Source**
 
